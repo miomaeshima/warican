@@ -1,6 +1,6 @@
 # warican
 
-This repository was created during our time as students at Code Chrysalis.
+This repository was created during our time as students at Code Chrysalis.<br>
 このリポジトリはCode Chrysalisの生徒であるときに作成しました。
 
 
@@ -12,17 +12,17 @@ This repository was created during our time as students at Code Chrysalis.
 <img src="https://img.shields.io/badge/license-MIT-green">
 
 Warican is an ultimate smartphonen application for people who love to eat out with friends but hate the hassle of splitting the bill.
-<br>
+
 
 ## 1. Our persona
 
 Ayaka (age 24) works for a financial company in Tokyo. Her passion is organizing occasions to eat out with her friends. As she lives on her own, and so do many of her friends, they usually split the bill. She enjoys the whole experience of dining together, including searching restaurants, finding out friends' schedules, except the hassle of splitting the pay at the end of the meal. For her, the process of counting how much everybody is due and going around the table to collect cash is such an uninspiring thing to do. Also, she is now accustomed to using cashless payment elsewhere and loathes handling cash. 
-<br>
+
 
 ## 2. Name
 
 The name warican comes from a Japanese word, warikan（割り勘）which means splitting the bill. And the use of "can" in the name indicates the user can indeed split the bill easily. 
-<br>
+
 
 
 ## 3. Usage
@@ -39,7 +39,7 @@ If a group of service users wants to split a bill, they first need to sign in to
 
 The tables in the database
 
-<img src="images/waricantables.png" width=100%>
+<img src="images/databaseTable.png" width=100%>
 
 Starting from the left, you see the merchant table, the receipt (bill) table, the transaction table, the customer table, the group member table (this a joint table), and the groups table. This time, we used the merchant table and the receipt table only.
 
@@ -49,6 +49,7 @@ Based on the transaction total and the number of users, the application calculat
 ## 5. Technology used
 
 This software was built with the following technologies.
+<img src="images/waricantechnologies.png" width=100%>
 
 ## 6. Future features
 
