@@ -1,89 +1,119 @@
-# warican
+<p align="center">*This repository was created during our time as students at Code Chrysalis.</p><br>
+<p align="right"><img src="https://img.shields.io/badge/license-MIT-green" height=15px>
+</p>
 
-This repository was created during our time as students at Code Chrysalis.<br>
-このリポジトリはCode Chrysalisの生徒であるときに作成しました。
-
+<p align="center"><img src="images/waricanLogo.png" width="200px"></p>
 
 <br>
+<h1 align="center">Warican</h1><br>
+
+<strong>The ultimate smartphone application for people who love to eat out but don't want the hassle of splitting the bill.</strong>
 <br>
-<img src="images/warican%20logo.png" width="400px">
+
+## 1. Name
+
+---
+
+The name warican comes from a Japanese word, warikan（割り勘）, which means splitting the payment. The use of "can" in the name indicates users can indeed split the bill without any hassle.
 <br>
 <br>
-<img src="https://img.shields.io/badge/license-MIT-green">
 
-Warican is an ultimate smartphonen application for people who love to eat out with friends but hate the hassle of splitting the bill.
+## 2. Usage
 
+---
 
-## 1. Our persona
+Using Warican on the smartphone, users can easily split the bill of the meal they share with friends. 
 
-Ayaka (age 24) works for a financial company in Tokyo. Her passion is organizing occasions to eat out with her friends. As she lives on her own, and so do many of her friends, they usually split the bill. She enjoys the whole experience of dining together, including searching restaurants, finding out friends' schedules, except the hassle of splitting the pay at the end of the meal. For her, the process of counting how much everybody needs to pay and going around the table to collect cash is such an uninspiring thing to do. Also, she is now accustomed to using cashless payment elsewhere and loathes handling cash. 
+First, the users set up a group by clicking on the icons of the people they are with.<br><br>
+<p align="center"><img src="images/waricanGroupSetting.png" width= "200px"></p><br>
+Click on the confirm button.<br><br>
+<p align="center"><img src="images/waricanGroupSetting2.png" width="200px"></p><br>
+The users enter the id of the bill the restaraunt issues. When they do, they see the amount each of them needs to pay and also the total amount.<br><br>
+<p align="center"><img src="images/waricanCalculation.png" width="200px"></p><br>
+Hit the payment button to jump to a payment page and enter email address and credit card information to pay.<br><br>
 
+That's it! The bill is split.
 
-## 2. Name
-
-The name warican comes from a Japanese word, warikan（割り勘）which means splitting the bill. And the use of "can" in the name indicates the user can indeed split the bill easily. 
-
-
-
-## 3. Usage
-
-Users use this application is their smartphone. A group of users who split the bill first select the names of their friends they eat with from the friend list. This way, they make a group. They also need to input the id of the bill the restaurant issues into the application. The users would immediately see the total amount and the amount each needs to pay on the screen. Once they confirmed the amount, they can hit the payment button, which will bring them to a payment page. Then they would input their email address and credit information. They hit the button to pay. Once the payment is successfully completed, the screen switches to the success page, showing that payment is done.  
-
-Throughout the transaction, the event organizer doesn't need to calculate how much money each person must pay or worry about the change.
+No more calculating how much money each person must pay, going around the table to collect money, or worrying about the change!
+<br>
+<br>
 
 ## 4. How it works
 
-The warican server keeps the data of restaurants and users who have signed up for the service. When somebody eats at a merchant (restaurant registered with the service), that merchant will enter the transaction information (i.e., a meal) into the service. That information includes the total balance and orders (what dishes they served). 
+---
 
-If a group of service users wants to split a bill, they first need to sign in to the service and click on the friends they are eating with on the friends list. This user action allows the application to know how many users are going to share a bill. When the user inputs the receipt's ID, the application will get from the server the data about that transaction. 
+The way the application works is as follows. First, the warican server keeps the data of restaurants and users who have signed up for the service. 
 
+If a group of service users wants to split a bill, they first sign in the service and click on the friends they are eating with on the friends list. The friend list that users see is created using the data in the table:customer in the database.
 
-<img src="images/databasetables.png" width=100%>
+<p align="center"><img src="images/db1.png" width="500px"></p>
 
-For this project, table:customer and table:receipt are used.
+This user action tells the application how many users are going to share a bill.
 
-Based on the transaction total and the number of users, the application calculates and displays how much each person needs to pay. With a click of a button, the application brings the user to the payment page of Stripe Checkout. Thus the compliance regarding the payment is ensured by Stripe. Once the payment is done on that page, the user is brought back to the application's success page. 
-<br>
+When the users input the id of the bill, the application will go get the data about the transaction from the table:receipt. (The restaurant has already entered the data in the system.) 
+
+<p align="center"><img src="images/db2.png" width="500px"></p>
+
+The data from the table:receipt include the total balance, the application use that information and calculates how much each person needs to pay based on the number of the users.
+
+With a click of a button, the application directs the user to the payment page of Stripe Checkout. Stripe provides the payment compliance. And the payment is made to the stripe account. Once the payment is done on that page, the user is brought back to the application's success page.<br><br>
+
+<p align="center"><img src="images/currentSystem.png" width="500px"></p>
+
+<br><br>
 
 ## 5. Technology used
 
-This software was built with the following technologies.
-<img src="images/waricantechnologies.png" width=100%>
+---
+
+This software was built with the following technologies.<br>
+
+<p align="center"><img src="images/technologies.png" width=50%></p>
+<br>
 
 ## 6. Future features
 
-For this stage, we implemented the core of the service, but to realize our persona's go\al, we envision to:
+---
+<img src="images/futureSystem.png" align="right" width="400px"> 
+<p>For this stage, we implemented the core of the service, but to realize the project goal, we envision to:
 
-* Login function.
+- Login / register function.
 
-* Link between Stripe account to merchant using Stripe Connect.
+- Deploy Stripe Connect for fund transfer to Merchants
 
-* Ability to notify the event organizer/host to show which participants have paid. 
+- Flexibility to adjust each person's payment amount and recalculate other people's amount automatically
 
-* Ability to adjust each person's payment amount and recalculate other people's amount automatically. 
+- Notification of payment status to both users and merchants</p>
 
-* Build up the database to hold the status of payment of each person. This will enable the above two features.
-
+<br>
 
 ## 7. Authors<br>
 
-Co-authors of this application: 
+---
 
-* Eliot Austin-Forbes 
-* Naoto　Maeda
-* Sayaka Nakajima
-* Kaisei Suzuki
-* Mio Maeshima
+Co-authors of this application
+
+- Eliot Austin-Forbes
+- Naoto Maeda
+- Sayaka Nakajima
+- Kaisei Suzuki
+- Mio Maeshima
+  <br>
+  <br>
 
 ## 8. Acknowledgments
 
-We are indebted to the genuine support and insightful advice by<br><br>
-* Rafael Viana<br>
-* Eriko Kidera<br> 
-* Yusuke Yamada<br>
+---
 
-## 9. Liecense   MIT
+We are indebted to the genuine support and insightful advice by . . .<br><br>
 
+- Rafael Viana<br>
+- Eriko Kidera<br>
+- Yusuke Yamada<br>
 
+<br>
 
+## 9. Liecense
 
+---
+- MIT
